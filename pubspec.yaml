@@ -1,0 +1,32 @@
+name: se7ety_app
+description: "A new Flutter project."
+publish_to: 'none'
+version: 0.1.0
+
+environment:
+  sdk: '>=3.3.3 <4.0.0'
+
+dependencies:
+  cloud_firestore: ^4.17.2
+  firebase_auth: ^4.19.4
+  firebase_core: ^2.30.1
+  firebase_storage: ^11.7.2
+  flutter:
+    sdk: flutter
+  flutter_bloc: ^8.1.5
+  flutter_svg: ^2.0.10+1
+  gap: ^3.0.1
+  google_fonts: ^6.2.1
+  lottie: ^3.1.0
+  shared_preferences: ^2.2.3
+  smooth_page_indicator: ^1.1.0
+
+dev_dependencies:
+  flutter_lints: ^3.0.0
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/
