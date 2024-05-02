@@ -6,7 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:se7ety_app/features/authentication/presentation/manger/auth_cubit.dart';
 import 'package:se7ety_app/features/authentication/presentation/view/log_in.dart';
 import 'package:se7ety_app/features/introducery/splash.dart';
-import 'package:se7ety_app/features/profile/presentation/view/profile.dart';
+
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();

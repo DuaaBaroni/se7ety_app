@@ -41,10 +41,11 @@ class _RegisterViewState extends State<RegisterView> {
       listener: (context, state) {
         if (state is RegisterSuccessState) {
           print("Done");
-          //  pushAndRemoveUntil(context,  DoctorUploadData());
+          pushAndRemoveUntil(context, DoctorUploadData());
         } else if (state is RegisterErrorState) {
           Navigator.pop(context);
           showErrorDialog(context, state.error);
+          //  print("error");
         } else {
           showLoadingDialog(context);
         }
@@ -69,8 +70,7 @@ class _RegisterViewState extends State<RegisterView> {
                       ),
                       Gap(30),
                       TextFormField(
-                        textInputAction: TextInputAction.next,
-                        keyboardType: TextInputType.emailAddress,
+                       // textInputAction: TextInputAction.next,
                         controller: _displayName,
                         textAlign: TextAlign.start,
                         decoration: InputDecoration(
@@ -78,7 +78,7 @@ class _RegisterViewState extends State<RegisterView> {
                             borderRadius: BorderRadius.circular(20),
                           ),
                           hintText: 'الاسم',
-                          prefixIcon: Icon(Icons.email_rounded,
+                          prefixIcon: Icon(Icons.person_2_rounded,
                               color: AppColors.background),
                         ),
                         validator: (value) {
@@ -90,7 +90,7 @@ class _RegisterViewState extends State<RegisterView> {
                       ),
                       Gap(20),
                       TextFormField(
-                          keyboardType: TextInputType.emailAddress,
+                         // keyboardType: TextInputType.emailAddress,
                           controller: _emailController,
                           textAlign: TextAlign.end,
                           decoration: InputDecoration(
@@ -101,7 +101,7 @@ class _RegisterViewState extends State<RegisterView> {
                             prefixIcon: Icon(Icons.email_rounded,
                                 color: AppColors.background),
                           ),
-                          textInputAction: TextInputAction.next,
+                        //  textInputAction: TextInputAction.next,
                           validator: (value) {
                             if (value!.isEmpty) {
                               return 'من فضلك ادخل الايميل';
@@ -146,21 +146,20 @@ class _RegisterViewState extends State<RegisterView> {
                       Gap(20),
                       CustomButton(
                         onPressed: () async {
-                          // if (_formKey.currentState!.validate()) {
-                          //   if (widget.index == 0) {
-                          //     context.read<AuthCubit>().registerDoctor(
-                          //         _displayName.text,
-                          //         _emailController.text,
-                          //         _passwordController.text);
-                          //   } else
                           if (_formKey.currentState!.validate()) {
-                            context.read<AuthCubit>().registerPatient(
-                                _displayName.text,
-                                _emailController.text,
-                                _passwordController.text);
+                            if (widget.index == 0) {
+                              context.read<AuthCubit>().registerDoctor(
+                                  _displayName.text,
+                                  _emailController.text,
+                                  _passwordController.text);
+                            } else {
+                              context.read<AuthCubit>().registerPatient(
+                                  _emailController.text,
+                                  _passwordController.text,
+                                  _displayName.text);
+                            }
                           }
                         },
-
                         // navigateWithReplacement(
                         //   context,
                         //   LoginView(index: widget.index),

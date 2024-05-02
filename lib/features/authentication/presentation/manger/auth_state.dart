@@ -28,5 +28,9 @@ class UploadLoadingState extends AuthState{}
 
 class UploadSuccessState extends AuthState{}
 
-class UploadErrorState extends AuthState{}
+class UploadErrorState extends AuthState{
+  final String error;
+  UploadErrorState(this.error);
+
+}
 

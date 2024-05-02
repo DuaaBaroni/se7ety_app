@@ -3,7 +3,9 @@ import 'package:lottie/lottie.dart';
 
 showErrorDialog(context, errorText) {
   ScaffoldMessenger.of(context)
-      .showSnackBar(SnackBar(content: Text(errorText)));
+      .showSnackBar(SnackBar(content: Text(errorText)
+      )
+      );
 }
 
 // loading

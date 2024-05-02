@@ -37,7 +37,6 @@ class AuthCubit extends Cubit<AuthState> {
       );
       User user = credential.user!;
       user.updateDisplayName(name);
-
       emit(RegisterSuccessState());
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
@@ -61,7 +60,7 @@ class AuthCubit extends Cubit<AuthState> {
       emit(RegisterSuccessState());
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
-        emit(RegisterErrorState("لا يوجد حساب "));
+        emit(RegisterErrorState("لا يوجد مستخدم"));
       } else if (e.code == 'wrong-password') {
         emit(RegisterErrorState("كلمه المرور خطأ"));
       } else {

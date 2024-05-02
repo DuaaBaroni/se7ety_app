@@ -10,7 +10,7 @@ class DoctorUploadData extends StatefulWidget {
 class _DoctorUploadDataState extends State<DoctorUploadData> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       
     );
   }
