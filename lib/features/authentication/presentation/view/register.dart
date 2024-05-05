@@ -40,14 +40,15 @@ class _RegisterViewState extends State<RegisterView> {
     return BlocListener<AuthCubit, AuthState>(
       listener: (context, state) {
         if (state is RegisterSuccessState) {
-          print("Done");
+        //  print("Done");
           pushAndRemoveUntil(context, DoctorUploadData());
         } else if (state is RegisterErrorState) {
           Navigator.pop(context);
           showErrorDialog(context, state.error);
-          //  print("error");
+          // print("error");
         } else {
           showLoadingDialog(context);
+         // print("error reg");
         }
       },
       child: Scaffold(
