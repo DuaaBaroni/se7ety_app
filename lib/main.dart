@@ -4,8 +4,11 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:se7ety_app/features/authentication/presentation/manger/auth_cubit.dart';
+import 'package:se7ety_app/features/authentication/presentation/view/doctor_upload_data.dart';
 import 'package:se7ety_app/features/authentication/presentation/view/log_in.dart';
 import 'package:se7ety_app/features/introducery/splash.dart';
+import 'package:se7ety_app/features/patient/home/presentation/view/patient_home_view.dart';
+import 'package:se7ety_app/features/patient/nav_bar.dart';
 
 
 void main() {

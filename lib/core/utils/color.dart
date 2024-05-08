@@ -9,4 +9,5 @@ class AppColors{
   static Color black = Color(0xff121212);
   static Color grey = Color(0xffB4AAAA);
   static Color white = Color(0xffFFFFFF);
+  static Color red =  Color(0xffd22727);
 }
