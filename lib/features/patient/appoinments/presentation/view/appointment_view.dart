@@ -2,7 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:se7ety_app/core/utils/color.dart';
 import 'package:se7ety_app/core/utils/style.dart';
-import 'package:se7ety_app/features/patient/appoinments/presentation/view/appintments_list.dart';
+import 'package:se7ety_app/features/patient/appoinments/presentation/view/appointments_list.dart';
 
 
 class AppointmentsView extends StatefulWidget {
@@ -30,6 +30,7 @@ class AppointmentsViewState extends State<AppointmentsView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         backgroundColor: AppColors.background,
         centerTitle: true,
         title:  Text(

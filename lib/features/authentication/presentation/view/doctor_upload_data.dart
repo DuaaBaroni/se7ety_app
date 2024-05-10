@@ -16,6 +16,7 @@ import 'package:se7ety_app/core/widgets/dialog.dart';
 import 'package:se7ety_app/features/authentication/data/specilization.dart';
 import 'package:se7ety_app/features/authentication/presentation/manger/auth_cubit.dart';
 import 'package:se7ety_app/features/authentication/presentation/manger/auth_state.dart';
+import 'package:se7ety_app/features/patient/home/presentation/view/patient_home_view.dart';
 
 class DoctorUploadData extends StatefulWidget {
   const DoctorUploadData({super.key});
@@ -81,7 +82,7 @@ class _DoctorUploadDataState extends State<DoctorUploadData> {
     return BlocListener<AuthCubit, AuthState>(
       listener: (context, state) {
         if (state is UploadSuccessState){
-          // pushAndRemoveUntil(context, HomeView);
+          pushAndRemoveUntil(context, PatientHomeView());
           
         } else if (state is UploadErrorState){
            Navigator.pop(context);

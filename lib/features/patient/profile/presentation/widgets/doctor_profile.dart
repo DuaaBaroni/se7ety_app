@@ -5,7 +5,7 @@ import 'package:se7ety_app/core/utils/color.dart';
 import 'package:se7ety_app/core/utils/style.dart';
 import 'package:se7ety_app/core/widgets/custom_btn.dart';
 import 'package:se7ety_app/features/patient/search/data/doctor_model.dart';
-import 'package:se7ety_app/features/patient/appoinments/presentation/widgets/booking.dart';
+import 'package:se7ety_app/features/patient/search/presentation/widgets/booking.dart';
 import 'package:se7ety_app/features/patient/search/presentation/widgets/contact_icon.dart';
 import 'package:se7ety_app/features/patient/search/presentation/widgets/tile_widget.dart';
 
@@ -79,7 +79,7 @@ class _DoctorProfileState extends State<DoctorProfile> {
                           radius: 60,
                           backgroundColor: AppColors.white,
                           child: CircleAvatar(
-                            backgroundColor: AppColors.white,
+                            backgroundColor: AppColors.offWhite,
                             radius: 60,
                             backgroundImage: (userData['image'] != null)
                                 ? NetworkImage(userData['image'])
@@ -156,9 +156,7 @@ class _DoctorProfileState extends State<DoctorProfile> {
                   userData['bio'],
                   style: getSmallStyle(),
                 ),
-                const SizedBox(
-                  height: 20,
-                ),
+               const Gap(10),
                 Container(
                   padding: const EdgeInsets.all(15),
                   width: double.infinity,

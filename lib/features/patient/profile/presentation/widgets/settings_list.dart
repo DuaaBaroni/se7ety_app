@@ -38,7 +38,7 @@ class SettingsListItem extends StatelessWidget {
             const SizedBox(
               width: 10,
             ),
-            Text(text, style: getSmallStyle(fontWeight: FontWeight.w600)),
+            Text(text, style: getBodyStyle(fontWeight: FontWeight.w600,color:AppColors.white)),
             const Spacer(),
             if (hasNavigation)
               const Icon(

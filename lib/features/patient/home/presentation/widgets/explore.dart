@@ -6,7 +6,7 @@ import 'package:se7ety_app/core/utils/color.dart';
 import 'package:se7ety_app/core/utils/style.dart';
 import 'package:se7ety_app/features/patient/home/presentation/view/patient_home_view.dart';
 import 'package:se7ety_app/features/patient/home/presentation/widgets/doctor_card.dart';
-import 'package:se7ety_app/features/patient/search/presentation/view/doctor_profile.dart';
+import 'package:se7ety_app/features/patient/profile/presentation/widgets/doctor_profile.dart';
 
 
 class ExploreList extends StatefulWidget {

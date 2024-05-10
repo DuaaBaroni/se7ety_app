@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_interpolation_to_compose_strings
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
@@ -6,8 +8,6 @@ import 'package:intl/intl.dart';
 import 'package:se7ety_app/core/utils/color.dart';
 import 'package:se7ety_app/core/utils/style.dart';
 import 'package:se7ety_app/features/patient/appoinments/presentation/widgets/scheduling.dart';
-
-
 
 class AppointmentList extends StatefulWidget {
   const AppointmentList({super.key});
@@ -48,37 +48,26 @@ class _AppointmentListState extends State<AppointmentList> {
     return formattedTime;
   }
 
-  showAlertDialog(BuildContext context, String doctorID) {
-    Widget cancelButton = TextButton(
-      child: const Text("لا"),
-      onPressed: () {
-        Navigator.of(context).pop();
-      },
-    );
-    Widget continueButton = TextButton(
-      child: const Text("نعم"),
-      onPressed: () {
-        deleteAppointment(
-          _documentID!,
-        );
-        Navigator.of(context).pop();
-      },
-    );
-
-    CupertinoAlertDialog alert = CupertinoAlertDialog(
+  showAlertDialog(BuildContext context, String docID) {
+    return AlertDialog.adaptive(
       title: const Text("حذف الحجز"),
-      content: const Text("هل متاكد من حذف هذا الحجز ؟"),
+      content: const Text("هل انت متأكد من الحجز ؟"),
       actions: [
-        cancelButton,
-        continueButton,
+        TextButton(
+          child: const Text("لا"),
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
+        ),
+        TextButton(
+            child: const Text("نعم"),
+            onPressed: () {
+              deleteAppointment(
+                _documentID!,
+              );
+              Navigator.of(context).pop();
+            })
       ],
-    );
-
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return alert;
-      },
     );
   }
 
@@ -116,7 +105,7 @@ class _AppointmentListState extends State<AppointmentList> {
             .doc('appointments')
             .collection('pending')
             .where('patientID', isEqualTo: '${user!.email}')
-            
+            .orderBy("date", descending: false)
             .snapshots(),
         builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
           if (!snapshot.hasData) {
@@ -124,7 +113,7 @@ class _AppointmentListState extends State<AppointmentList> {
               child: CircularProgressIndicator(),
             );
           }
-          return snapshot.data?.size == 0
+          return snapshot.data!.docs.isEmpty
               ? const NoScheduledWidget()
               : ListView.builder(
                   scrollDirection: Axis.vertical,
@@ -183,7 +172,8 @@ class _AppointmentListState extends State<AppointmentList> {
                                   Row(
                                     children: [
                                       Icon(Icons.calendar_month_rounded,
-                                          color: AppColors.background, size: 16),
+                                          color: AppColors.background,
+                                          size: 16),
                                       const SizedBox(
                                         width: 10,
                                       ),
@@ -211,7 +201,8 @@ class _AppointmentListState extends State<AppointmentList> {
                                   Row(
                                     children: [
                                       Icon(Icons.watch_later_outlined,
-                                          color: AppColors.background, size: 16),
+                                          color: AppColors.background,
+                                          size: 16),
                                       const SizedBox(
                                         width: 10,
                                       ),
@@ -243,7 +234,8 @@ class _AppointmentListState extends State<AppointmentList> {
                                     Row(
                                       children: [
                                         Icon(Icons.location_on_rounded,
-                                            color: AppColors.background, size: 16),
+                                            color: AppColors.background,
+                                            size: 16),
                                         const SizedBox(
                                           width: 10,
                                         ),
@@ -264,7 +256,9 @@ class _AppointmentListState extends State<AppointmentList> {
                                           onPressed: () {
                                             _documentID = document.id;
                                             showAlertDialog(
-                                                context, document['doctorsID']);
+                                                // context, document['doctorsID']);
+                                                context,
+                                                document.id);
                                           },
                                           child: const Text('حذف الحجز')),
                                     ),

@@ -10,9 +10,10 @@ import 'package:se7ety_app/core/utils/style.dart';
 import 'package:se7ety_app/core/widgets/custom_btn.dart';
 import 'package:se7ety_app/core/widgets/dialog.dart';
 import 'package:se7ety_app/features/patient/appoinments/presentation/view/appointment_view.dart';
+import 'package:se7ety_app/features/patient/appoinments/presentation/view/appointments_list.dart';
 import 'package:se7ety_app/features/patient/home/presentation/widgets/doctor_card.dart';
 import 'package:se7ety_app/features/patient/search/data/doctor_model.dart';
-import 'package:se7ety_app/features/patient/search/presentation/widgets/appoinments.dart';
+import 'package:se7ety_app/features/patient/search/presentation/widgets/available_appoinments.dart';
 
 
 class BookingView extends StatefulWidget {
@@ -56,7 +57,7 @@ class _BookingViewState extends State<BookingView> {
             selectedDate, widget.doctor.startHour, widget.doctor.endHour)
         .then((value) {
       for (var i in value) {
-        times.add(i.hour);
+        times.add(i);
       }
     });
   }
@@ -146,9 +147,7 @@ class _BookingViewState extends State<BookingView> {
                         style: getTitleStyle(),
                       ),
                     ),
-                    const SizedBox(
-                      height: 15,
-                    ),
+                   Gap(10),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Row(
@@ -165,7 +164,7 @@ class _BookingViewState extends State<BookingView> {
                          border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(25)
                          ),
-                         filled: true,
+                         fillColor: AppColors.offWhite,
                          hintText: "دعاء هاشم"
                       ),
                       controller: _nameController,
@@ -194,7 +193,7 @@ class _BookingViewState extends State<BookingView> {
                          border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(25)
                          ),
-                         filled: true,
+                         fillColor: AppColors.offWhite,
                          hintText: "+20**********"
                       ),
                       controller: _phoneController,
@@ -209,9 +208,7 @@ class _BookingViewState extends State<BookingView> {
                       },
                       textInputAction: TextInputAction.next,
                     ),
-                    const SizedBox(
-                      height: 7,
-                    ),
+                    Gap(10),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Row(
@@ -229,7 +226,7 @@ class _BookingViewState extends State<BookingView> {
                          border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(25)
                          ),
-                         filled: true,
+                         fillColor: AppColors.offWhite,
                          hintText: ""
                       ),
                       keyboardType: TextInputType.multiline,
@@ -237,9 +234,7 @@ class _BookingViewState extends State<BookingView> {
                       style: getBodyStyle(),
                       textInputAction: TextInputAction.next,
                     ),
-                    const SizedBox(
-                      height: 7,
-                    ),
+                    Gap(10),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Row(
@@ -263,7 +258,7 @@ class _BookingViewState extends State<BookingView> {
                          border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(25)
                          ),
-                        filled: true,
+                        fillColor: AppColors.offWhite
                       ),
                             readOnly: true,
                             controller: _dateController,
@@ -314,6 +309,7 @@ class _BookingViewState extends State<BookingView> {
                         (index) {
                           return ChoiceChip(
                             backgroundColor: AppColors.background,
+                            checkmarkColor: AppColors.white,
                             selectedColor: AppColors.offWhite,
                             label: Text(
                               '${times[index].toString()}:00',
@@ -346,6 +342,7 @@ class _BookingViewState extends State<BookingView> {
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.all(12),
         child: CustomButton(
+          
           text: 'تأكيد الحجز',
           onPressed: () {
             if (_formKey.currentState!.validate() && isSelected != -1) {
@@ -359,7 +356,7 @@ class _BookingViewState extends State<BookingView> {
                   Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const AppointmentsView(),
+                      builder: (context) =>  AppointmentList(),
                     ),
                   );
                 },

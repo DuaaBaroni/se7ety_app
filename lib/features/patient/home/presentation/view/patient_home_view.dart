@@ -12,7 +12,7 @@ import 'package:se7ety_app/features/patient/home/presentation/widgets/card_speci
 import 'package:se7ety_app/features/patient/home/presentation/widgets/explore.dart';
 import 'package:se7ety_app/features/patient/home/presentation/widgets/search_feild.dart';
 import 'package:se7ety_app/features/patient/home/presentation/widgets/top_rated.dart';
-//import 'package:se7ety_app/features/patient/home/presentation/widgets/top_rate.dart';
+
 
 class PatientHomeView extends StatefulWidget {
   const PatientHomeView({super.key});

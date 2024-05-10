@@ -127,9 +127,9 @@ class _ProfileViewState extends State<ProfileView> {
                               children: [
                                 CircleAvatar(
                                   radius: 60,
-                                  backgroundColor: AppColors.white,
+                                  backgroundColor: AppColors.offWhite,
                                   child: CircleAvatar(
-                                    backgroundColor: AppColors.white,
+                                    backgroundColor: AppColors.offWhite,
                                     radius: 60,
                                     backgroundImage:
                                         (userData?['image'] != null)
@@ -263,20 +263,4 @@ class _ProfileViewState extends State<ProfileView> {
 }
       
     
-//   import 'package:flutter/material.dart';
 
-// class ProfileView extends StatefulWidget {
-//   const ProfileView({super.key});
-
-//   @override
-//   State<ProfileView> createState() => _ProfileViewState();
-// }
-
-// class _ProfileViewState extends State<ProfileView> {
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-
-//     );
-//   }
-// }

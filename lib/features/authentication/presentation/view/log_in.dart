@@ -144,9 +144,10 @@ class _LoginViewState extends State<LoginView> {
                       onPressed: () async {
                         if (_formKey.currentState!.validate()) {
                           await context.read<AuthCubit>().login(
-                              _emailController.text, _passwordController.text);
+                              _emailController.text,
+                               _passwordController.text);
                         }
-                        navigateWithReplacement(context, DoctorUploadData());
+                       // navigateWithReplacement(context, NavBarPatient());
                       },
                       text: "تسجيل الدخول",
                       width: double.infinity,
