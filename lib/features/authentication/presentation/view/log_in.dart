@@ -115,7 +115,8 @@ class _LoginViewState extends State<LoginView> {
                           onPressed: () {
                             setState(() {
                               isVisable = !isVisable;
-                            });
+                            }
+                            );
                           },
                           icon: Icon(
                               (isVisable)
@@ -158,7 +159,7 @@ class _LoginViewState extends State<LoginView> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
-                            'ليس لدي حساب ؟',
+                            "لديك حساب",
                             style: getBodyStyle(color: AppColors.black),
                           ),
                           TextButton(
@@ -171,10 +172,11 @@ class _LoginViewState extends State<LoginView> {
                                 ));
                               },
                               child: Text(
-                                'سجل الان',
+                                'سجل دخول ',
                                 style:
                                     getBodyStyle(color: AppColors.background),
-                              )),
+                              )
+                              ),
                         ],
                       ),
                     ),

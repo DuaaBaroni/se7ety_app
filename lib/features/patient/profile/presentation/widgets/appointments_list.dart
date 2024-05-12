@@ -1,3 +1,5 @@
+// ignore_for_file: library_private_types_in_public_api, unused_element, avoid_print, prefer_interpolation_to_compose_strings
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
@@ -45,7 +47,7 @@ class _AppointmentHistoryListState extends State<AppointmentHistoryList> {
   }
 
   showAlertDialog(BuildContext context) {
-    // set up the buttons
+    
     Widget cancelButton = TextButton(
       child: const Text("No"),
       onPressed: () {

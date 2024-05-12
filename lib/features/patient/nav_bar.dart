@@ -58,7 +58,7 @@ class _NavBarPatientState extends State<NavBarPatient> {
               haptic: true,
               tabBorderRadius: 15,
               curve: Curves.easeOutExpo,
-              duration: Duration(milliseconds: 900),
+              duration: Duration(seconds: 1),
               gap: 8,
               color: Colors.grey[800],
               activeColor: AppColors.white,

@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors, library_private_types_in_public_api
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:se7ety_app/core/utils/color.dart';
@@ -63,7 +65,9 @@ class _SearchViewState extends State<SearchView> {
                   );
                 },
                 decoration: InputDecoration(
-                  border: InputBorder.none,
+                   border: OutlineInputBorder(
+                     borderRadius: BorderRadius.circular(25)
+                   ),
                   filled: true,
                   hintText: "البحث",
                   hintStyle: getBodyStyle(),

@@ -1,4 +1,4 @@
-// ignore_for_file: unused_import, prefer_const_constructors, library_private_types_in_public_api, unused_field, avoid_unnecessary_containers, avoid_print
+// ignore_for_file: unused_import, prefer_const_constructors, library_private_types_in_public_api, unused_field, avoid_unnecessary_containers, avoid_print, prefer_const_literals_to_create_immutables
 
 import 'dart:developer';
 import 'dart:io';
@@ -16,6 +16,7 @@ import 'package:se7ety_app/core/widgets/dialog.dart';
 import 'package:se7ety_app/features/authentication/data/specilization.dart';
 import 'package:se7ety_app/features/authentication/presentation/manger/auth_cubit.dart';
 import 'package:se7ety_app/features/authentication/presentation/manger/auth_state.dart';
+import 'package:se7ety_app/features/introducery/welcome.dart';
 import 'package:se7ety_app/features/patient/home/presentation/view/patient_home_view.dart';
 
 class DoctorUploadData extends StatefulWidget {
@@ -100,6 +101,11 @@ class _DoctorUploadDataState extends State<DoctorUploadData> {
             'إكمال عملية التسجيل',
             style: getTitleStyle(color: AppColors.white),
           ),
+           actions: [
+             IconButton(onPressed: (){
+              navigateWithReplacement(context, WelcomeView());
+             }, icon: Icon(Icons.arrow_back_ios, color: AppColors.white,))
+           ],
         ),
         body: SingleChildScrollView(
           child: Padding(
