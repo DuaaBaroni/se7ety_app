@@ -19,7 +19,6 @@ This application helps in booking doctor's appointments and saves time for the p
       <div style= "display: flex; flex-direction: row;">
          <img src="https://github.com/DuaaBaroni/se7ety_app/blob/main/screenshots/welcome.png" height="500">
          <img src="https://github.com/DuaaBaroni/se7ety_app/blob/main/screenshots/log%20as%20doctor.png" height="500">
-     
          <img src="https://github.com/DuaaBaroni/se7ety_app/blob/main/screenshots/upload%20data.png" height="500">       
  </div>
  
